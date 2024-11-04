@@ -117,7 +117,7 @@ On this topic, I have seen an API that returns HTTP Status code 200 (OK) as resp
 
 ### Flowchart
 
-T.B.D.
+In the **root** folder of the application. File name is "**_Beni-mean-search-geo-objects-demo-app.drawio_**".
 
 ### Mock data
 
