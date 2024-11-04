@@ -1,6 +1,13 @@
-# CityShob Home Test Node.js + Angular 17 + MongoDB
+# MongoDB + Express.js + Angular 17 + Node.js (MEAN) Demo Application
 
-The following are a few elementary details:
+Application to search Geographic objects by 4 types: Zones, Sites, Placemarks, Layers, and ofcouse, all types.
+
+Note: Then data in this application is lower than mock, it's trivial: 
+
+- Zones, Zone 1, Zone 2,...
+- Sites, Site 1, Site 2,...
+- Placemarks, Placemarks 1, Placemarks 2,...
+- Layers, Layer 1, Layer 2, ...
 
 - Developer: Beni Regev
 
@@ -32,19 +39,20 @@ The following are a few elementary details:
 
 Not Yet
 
-## Answering The Questions
+## Answering The Questions (common/obvious Q&A)
 
-- Plugins/Extensions
+### Plugins/Extensions
 
-  - Plugins
+#### Plugins
 
-    - No plugins
+No plugins
 
-  - Extensions:
-    - Angular Essentials extension for VS Code
-    - Angular 17 Snippets
+#### Extensions
 
-- Multi-Lingual Support:
+- Angular Essentials extension for VS Code
+- Angular 17 Snippets
+
+### Multi-Lingual Support
 
 Using Angular 2+ then using **_Angular/localized_** package that gives us the tools to localized the application.
 
@@ -95,24 +103,25 @@ If we are handling all aspects of I18N then, dates and currencies should also be
 
 I think that's all.
 
-- Handling Data Formats:
-  The **_Zero-Rule_** say that the application must support the standard format.
+### Handling Data Formats
 
-  If the server sends data in a different format (e.g., PascalCase while the application uses another case format), then the best practice, as well as KISS and WORM principles instruct to create a unidirectional or bi-directional mapping between the formats.
+The **_Zero-Rule_** say that the application must support the standard format.
 
-  The standard must be retain, someone else might use the application data, and breaking the standard in not an option.
+If the server sends data in a different format (e.g., PascalCase while the application uses another case format), then the best practice, as well as KISS and WORM principles instruct to create a unidirectional or bi-directional mapping between the formats.
 
-  If someone or something breaks the standard, then it does not give permission for anyone else to do so. That's bad practice.
+The standard must be retain, someone else might use the application data, and breaking the standard in not an option.
 
-  On this topic, I have seen an API that returns HTTP Status code 200 (OK) as response for every request. If there was an error then the text in the `message` property/field of the body/payload would start with **`ERROR:`**. We create a middle-tier (layer) for "mapping" and return to our application the correct response according to the correct standard.
+If someone or something breaks the standard, then it does not give permission for anyone else to do so. That's bad practice.
 
-- Flowchart
+On this topic, I have seen an API that returns HTTP Status code 200 (OK) as response for every request. If there was an error then the text in the `message` property/field of the body/payload would start with **`ERROR:`**. We create a middle-tier (layer) for "mapping" and return to our application the correct response according to the correct standard.
+
+### Flowchart
 
 T.B.D.
 
-- Mock data
+### Mock data
 
-  The answer depends on an important question: _How accurate we want the MOCK data to be? and do we want to use real names/types?_
+The answer depends on an important question: _How accurate we want the MOCK data to be? and do we want to use real names/types?_
 
 The simplest option is to have a few text file (plain-text, XML, JSON, etc.) with sample/mock data that I will use to create different combinations to create mock data. Populating the collection with the mock data in advance, or when the server starts at the latest.
 For example:
@@ -142,17 +151,17 @@ For example:
     }
     ```
 
-    Sites, Placemarks, and Layers mock data can be generated in a similar way.
+Sites, Placemarks, and Layers mock data can be generated in a similar way.
 
-    A sequential, nested iterating will ensure unique combinations.
+A sequential, nested iterating will ensure unique combinations.
 
-    This way if there are 3 records/line in each file will allow to generate 243 unique combinations of _Zone -> Type -> Subtype -> Object -> ObjectType_ mock data rows. 5 rows will give 3125 combinations, 10 rows in each file will give 10_000 combination.
+This way if there are 3 records/line in each file will allow to generate 243 unique combinations of _Zone -> Type -> Subtype -> Object -> ObjectType_ mock data rows. 5 rows will give 3125 combinations, 10 rows in each file will give 10_000 combination.
 
-    - Memory wise there's no problem to hold 50 (10 \* 5) elements.
-    - Performance wise: The nested iterating should take about 10 seconds.
-    - Runtime of a few seconds, even a minute or two in case of larger files is nothing.
-    - Yes, I have used this technique several times in the past to create massive quantity of mock data (Terabytes, Petabytes and more).
+- Memory wise there's no problem to hold 50 (10 \* 5) elements.
+- Performance wise: The nested iterating should take about 10 seconds.
+- Runtime of a few seconds, even a minute or two in case of larger files is nothing.
+- Yes, I have used this technique several times in the past to create massive quantity of mock data (Terabytes, Petabytes and more).
 
-    Another option is using external API (e.g., `jsonplaceholder`, etc.), or use a tool/library that gives diverse data in a variety of categories, fields, and topics (I used `javafaker` in the past).
+Another option is using external API (e.g., `jsonplaceholder`, etc.), or use a tool/library that gives diverse data in a variety of categories, fields, and topics (I used `javafaker` in the past).
 
-    These options can be also use to create the files I referred to in the first option.
+These options can be also use to create the files I referred to in the first option.
