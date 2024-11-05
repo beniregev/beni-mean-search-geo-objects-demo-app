@@ -29,7 +29,6 @@ Note: Then data in this application is lower than mock, it's trivial:
 #### Server-Side
 
 - **_Express.js_** for Node.js API calls.
-- **_multer_** To read the request form data.
 - **_mongodb_** MongoDB client.
 - **_dotenv_** To get environment variable from `.env` file(s).
 - **_cors_** To override the default security that comes with Express.js and disables requests coming from different domains or ports. **NOT TO BE DEPLOYED IN PRODUCTION**.
