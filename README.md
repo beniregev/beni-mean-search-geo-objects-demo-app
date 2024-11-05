@@ -2,7 +2,7 @@
 
 Application to search Geographic objects by 4 types: Zones, Sites, Placemarks, Layers, and ofcouse, all types.
 
-Note: Then data in this application is lower than mock, it's trivial: 
+Note: Then data in this application is lower than mock, it's trivial:
 
 - Zones, Zone 1, Zone 2,...
 - Sites, Site 1, Site 2,...
@@ -29,15 +29,66 @@ Note: Then data in this application is lower than mock, it's trivial:
 #### Server-Side
 
 - **_Express.js_** for Node.js API calls.
-- **_cors_** To override the default security that comes with Express.js and disables requests coming from different domains or ports. **NOT TO BE DEPLOYED IN PRODUCTION**.
-- **_axios_** To make external API calls.
 - **_multer_** To read the request form data.
 - **_mongodb_** MongoDB client.
 - **_dotenv_** To get environment variable from `.env` file(s).
+- **_cors_** To override the default security that comes with Express.js and disables requests coming from different domains or ports. **NOT TO BE DEPLOYED IN PRODUCTION**.
 
 #### Client-Side
 
+- **_axios_** To make external API calls (e.g., to the Node.js server, etc.).
+
 Not Yet
+
+## Comments From The Developer
+
+### Comments About Developing Backend / Server Side
+
+**General Comment:**
+
+It has been over 5 years since I did, or sent, queries to MongoDB. A lot has change, and I saw it when trying to open one of my previous collections and getting a message that "MongoDB Atlas can't open the collection because it was created in a format that is no longer supported".
+
+**Now, for the other comments about the Server-Side development.**
+
+The reason you see duplicate code and the same this done more than once is because I ran into some strange cases, errors, things which didn't work, and I tried doing the same in a different way just in an attempt to make it work.
+
+This is why in `index.js` you cna see that I get values for environment variables and at the same time using `const` with the same hard coded value. I wanted to eliminate the possibility that I get the value wrong. I left it to show what I did.
+
+Same goes for connecting to the collection. Using the `connect()` function works, but the `listen()` function doesn't show the message that it's connected to the collection. Although, it does `listen` to the correct port, receives requests and return responses.
+
+To check if the `listen()` function works I wrote 2 functions: `ping()` just to "ping" the server, and `getAll()` to get all the data from the collection without any query.
+
+The function `getAll()` working is proof that the flow works, the bu is because I change the schema (structure) of the collection and didn't adapt the code.
+
+### Comments About Developing Frontend / Client Side
+
+**Important General Comment:**
+
+I am Color Blind to some degree, it's called "Shades Blindness". I can see colors but, can't distinct between similar shades, and can't tell the difference between certain colors.
+
+If any or something in my design and styling doesn't make sense in comparison to the example in the requirements then that can be the reason.
+
+**Now, to my comments about the client side development.**
+
+I didn't have the time to implement sending the request to the Node.js server using **axios** to query the MongoDB collection and return the result. Because, I change the schema of the collection (structure of the collection's document) and had an issue with adapting the query to send to MongoDB.
+
+I "broke" the widget into 3 parts:
+
+- **`HeaderComponent`** - have the header "Search Geo Objects" and 2 icons: to minimize and pin the widget. I didn't implement anything about it because it's not in the requirements.
+- **`SearchFilterComponent`** - have the "filter" then the Categories DropDown, then the "search" input and next to it the search button as an image.
+- **`SearchResultsComponent`** - Showing the data retrieved according to the selected category and search text.
+
+All 3 components are combined in the `SearchWidgetComponent`.
+
+I **would** have made the categories DropDown dynamic with values which are received as a result from querying the collection for all the unique values of `type` field and adding "All" at the top. It wasn't in the requirements thus not implemented.
+
+I tried to make the Search-Result display as close to the example in the requirements. I know it wasn't required, but it's a nice UI and a challenge.
+
+As I had an issue receiving data in the query from the collection and my time for this development was running out, I decided to use static (hard coded) data which I created in the `search-result.component.ts` file.
+
+The static, hard coded, data structure in `search-result.component.ts` file is the final version of the document structure I wanted to implement.
+
+I didn't manage to implement the "check" sign/image on the left of the object nor a better design and styling for the connection status.
 
 ## Answering The Questions (common/obvious Q&A)
 
