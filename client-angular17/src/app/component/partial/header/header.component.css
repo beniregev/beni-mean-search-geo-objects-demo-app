@@ -1,0 +1,14 @@
+.title-component {
+  display: block;
+}
+
+.title {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 80%;
+}
+
+.title-component img {
+  display: inline-block;
+}

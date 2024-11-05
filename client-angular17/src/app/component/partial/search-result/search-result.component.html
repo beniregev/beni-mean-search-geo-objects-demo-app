@@ -1,1 +1,37 @@
-<p>search-result works!</p>
+<p>Search Results</p>
+<div class="geo-objects-container">
+  @for (g of geoObjects; track g) {
+  <div class="geo-objects-container">
+    <div class="type-header-container">
+      <img class="type-icon" src="{{ g.typeIcon }}" alt="" />
+      <div class="type-title">
+        Type:
+        {{ g.type }}
+      </div>
+    </div>
+    @for (st of g.subtypes; track st) {
+    <div class="subtype-container">
+      <div class="subtype-header-container">
+        <img class="subtype-icon" src="{{ st.subtypeIcon }}" alt="" />
+        <div class="subtype-title">Subtype: {{ st.subtype }}</div>
+      </div>
+      @for (sto of st.objects; track $index) {
+      <div class="obj-object-container">
+        <div class="obj-check">V</div>
+        <div class="obj-img">
+          <img class="object-icon" src="{{ sto.objIcon }}" alt="" />
+        </div>
+        <div class="obj-type-name">
+          <span class="obj-type">{{ sto.objType }}</span>
+          <span class="obj-name">{{ sto.objName }}</span>
+        </div>
+        <div class="obj-connection-status">
+          <div class="connection-status">{{ sto.connectionStatus }}</div>
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+  }
+</div>
