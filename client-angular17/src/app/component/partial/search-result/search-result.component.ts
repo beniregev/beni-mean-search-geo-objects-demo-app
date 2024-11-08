@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 
 @Component({
   selector: 'app-search-result',
   standalone: true,
-  imports: [],
+  imports: [NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './search-result.component.html',
-  styleUrl: './search-result.component.css'
+  styleUrl: './search-result.component.css',
 })
 export class SearchResultComponent {
   geoObjects = [
@@ -17,7 +18,11 @@ export class SearchResultComponent {
           subtype: 'Zone 1',
           subtypeIcon: '/assets/icons/zone.png',
           objects: [
-            { objIcon: '/assets/icons/sensor-1.png', objType: 'Sensor 1', objName: 'Camera 1' },
+            {
+              objIcon: '/assets/icons/sensor-1.png',
+              objType: 'Sensor 1',
+              objName: 'Camera 1',
+            },
             {
               objIcon: '/assets/icons/sensor-2.png',
               objType: 'Sensor 2',
@@ -28,13 +33,13 @@ export class SearchResultComponent {
               objIcon: '/assets/icons/sensor-1.png',
               objType: 'Sensor 1',
               objName: 'Camera 1',
-              connectionStatus: 'Unstable',
+              connectionStatus: 'unstable',
             },
             {
               objIcon: '/assets/icons/sensor-2.png',
               objType: 'Sensor 2',
               objName: 'Camera 2',
-              connectionStatus: 'Stable',
+              connectionStatus: 'stable',
             },
           ],
         },
@@ -51,7 +56,7 @@ export class SearchResultComponent {
               objIcon: '/assets/icons/sensor-2.png',
               objType: 'Sensor 2',
               objName: 'Camera 2',
-              connectionStatus: 'Unstable',
+              connectionStatus: 'unstable',
             },
             {
               objIcon: '/assets/icons/sensor-1.png',
@@ -63,7 +68,7 @@ export class SearchResultComponent {
               objIcon: '/assets/icons/sensor-2.png',
               objType: 'Sensor 2',
               objName: 'Camera 2',
-              connectionStatus: 'Stable',
+              connectionStatus: 'stable',
             },
           ],
         },
@@ -101,12 +106,12 @@ export class SearchResultComponent {
       subtypes: [
         {
           subtype: 'Site 1',
-          subtypeIcon: '/assets/icons/sites.png',
+          subtypeIcon: '/assets/icons/site.png',
           objects: [],
         },
         {
           subtype: 'Site 2',
-          subtypeIcon: '/assets/icons/sites.png',
+          subtypeIcon: '/assets/icons/site.png',
           objects: [
             {
               objIcon: '/assets/icons/sensor-2.png',
@@ -123,12 +128,12 @@ export class SearchResultComponent {
       subtypes: [
         {
           subtype: 'Placemark 1',
-          subtypeIcon: '/assets/icons/placemarks.png',
+          subtypeIcon: '/assets/icons/placemark.png',
           objects: [],
         },
         {
           subtype: 'Placemark 2',
-          subtypeIcon: '/assets/icons/placemarks.png',
+          subtypeIcon: '/assets/icons/placemark.png',
           objects: [
             {
               objIcon: '/assets/icons/sensor-1.png',
@@ -145,5 +150,4 @@ export class SearchResultComponent {
       subtypes: [],
     },
   ];
-
 }
