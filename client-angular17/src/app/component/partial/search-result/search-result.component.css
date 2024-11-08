@@ -58,6 +58,11 @@
   margin: 0.4em 1em 0.4em 0;
 }
 
+.subtype-objects {
+  display: block;
+  margin: 1em 2em 1.5em;
+}
+
 .obj-check {}
 
 .obj-type-name {
@@ -76,4 +81,16 @@ span.obj-type {
 span.obj-name {
   font-size: 1em;
   color: #a0a0a0;
+}
+
+.connection-status {
+  display: block;
+}
+
+.connection-status-img {
+  display: inline-block;
+}
+
+.connection-status-title {
+  display: inline-block;
 }
